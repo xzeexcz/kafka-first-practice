@@ -1,0 +1,5 @@
+Команда создания топика:
+docker compose exec kafka1 kafka-topics --create --topic orders-topic --partitions 3 --replication-factor 2 --bootstrap-server kafka1:9092
+
+Подробная информация о топике:
+docker compose exec kafka1 kafka-topics --describe --topic orders-topic --bootstrap-server kafka1:9092

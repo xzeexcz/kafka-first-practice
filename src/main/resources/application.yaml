@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: kafka
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:29092,localhost:29093}
+    producer:
+      acks: all
+      retries: 10
+
+
+app:
+  kafka:
+    topic: ${APP_TOPIC:orders-topic}
+    single-group-id: single-message-consumer-group
+    batch-group-id: batch-message-consumer-group
+    batch-size: 10
+    fetch-min-bytes: 1024
+    fetch-max-wait-ms: 3000
+    poll-timeout-ms: 1000
+    consumers:
+      enabled: ${APP_CONSUMERS_ENABLED:true}
+
+server:
+  port: 8090
