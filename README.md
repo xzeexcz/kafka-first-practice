@@ -17,7 +17,7 @@
 
 ## Настройки
 В `application.yaml`:
-- `spring.kafka.producer.acks=all` и `retries=10` для гарантии At Least Once.
+- `spring.kafka.producer.acks=all` и `retries=10`(переотправки) для гарантии At Least Once.
 - `app.kafka.fetch-min-bytes` и `app.kafka.fetch-max-wait-ms` для пакетного чтения.
 - `app.kafka.batch-size=10` для коммита после обработки 10 сообщений.
 
@@ -40,5 +40,4 @@
    - получение в `BatchMessageConsumer` и коммит после обработки пачки.
 
 ## Примечание по replicas
-`deploy.replicas: 2` указан в `docker-compose.yaml` по ТЗ. Для обычного Docker Compose масштабирование также можно выполнить командой:
-- `docker compose up --build --scale producer-app=2 -d`
+`deploy.replicas: 2` указан в `docker-compose.yaml`.
